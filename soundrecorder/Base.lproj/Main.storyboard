@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,89 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="soundrecorder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOT-FM-3co" userLabel="stopBtn">
+                                <rect key="frame" x="16" y="160" width="343" height="30"/>
+                                <state key="normal" title="중지 / 배열 저장"/>
+                                <connections>
+                                    <action selector="onClickStopBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6nd-R3-Toy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="숙면 비율: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMO-eW-VQg" userLabel="class1_ratio">
+                                <rect key="frame" x="16" y="240" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="심한 코골이 비율: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drK-8k-EdE" userLabel="class4_ratio">
+                                <rect key="frame" x="16" y="312" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSt-ro-Q3F" userLabel="loadBtn">
+                                <rect key="frame" x="16" y="200" width="343" height="30"/>
+                                <state key="normal" title="배열 불러오기 / 결과 도출"/>
+                                <connections>
+                                    <action selector="onClickLoadBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Uo-gQ-5IT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8a-ua-vmK" userLabel="recordBtn">
+                                <rect key="frame" x="16" y="120" width="343" height="30"/>
+                                <state key="normal" title="녹음 시작"/>
+                                <connections>
+                                    <action selector="onClickRecordBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VME-0B-jMW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저강도 코골이 비율: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4g-ew-u01" userLabel="class2_ratio">
+                                <rect key="frame" x="16" y="264" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고강도 코골이 비율: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETt-dp-KvI" userLabel="class3_ratio">
+                                <rect key="frame" x="16" y="288" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pSt-ro-Q3F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="087-Fg-Oym"/>
+                            <constraint firstItem="ETt-dp-KvI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="2sS-1A-0F1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lOT-FM-3co" secondAttribute="trailing" constant="16" id="344-4Q-5l2"/>
+                            <constraint firstItem="pSt-ro-Q3F" firstAttribute="top" secondItem="lOT-FM-3co" secondAttribute="bottom" constant="10" id="3tF-N4-sBs"/>
+                            <constraint firstItem="drK-8k-EdE" firstAttribute="top" secondItem="ETt-dp-KvI" secondAttribute="bottom" constant="3" id="4JZ-iM-cUh"/>
+                            <constraint firstItem="nMO-eW-VQg" firstAttribute="top" secondItem="pSt-ro-Q3F" secondAttribute="bottom" constant="10" id="CMv-l5-MqU"/>
+                            <constraint firstItem="lOT-FM-3co" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Dlm-cE-f1t"/>
+                            <constraint firstItem="D8a-ua-vmK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Fza-0i-iSC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="drK-8k-EdE" secondAttribute="trailing" constant="16" id="Hx1-Nv-ugv"/>
+                            <constraint firstItem="drK-8k-EdE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="JL9-7h-cBz"/>
+                            <constraint firstItem="g4g-ew-u01" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Jx3-cx-iLg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D8a-ua-vmK" secondAttribute="trailing" constant="16" id="b0v-zE-v0l"/>
+                            <constraint firstItem="g4g-ew-u01" firstAttribute="top" secondItem="nMO-eW-VQg" secondAttribute="bottom" constant="3" id="bqj-e8-R6W"/>
+                            <constraint firstItem="ETt-dp-KvI" firstAttribute="top" secondItem="g4g-ew-u01" secondAttribute="bottom" constant="3" id="gJA-Jc-CSH"/>
+                            <constraint firstItem="D8a-ua-vmK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="h6F-Zh-R0p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g4g-ew-u01" secondAttribute="trailing" constant="16" id="nXz-yT-ArI"/>
+                            <constraint firstItem="lOT-FM-3co" firstAttribute="top" secondItem="D8a-ua-vmK" secondAttribute="bottom" constant="10" id="rWS-iG-VqT"/>
+                            <constraint firstItem="nMO-eW-VQg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="smy-a6-hrV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pSt-ro-Q3F" secondAttribute="trailing" constant="16" id="snV-DS-ejH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nMO-eW-VQg" secondAttribute="trailing" constant="16" id="vYQ-ex-4GH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ETt-dp-KvI" secondAttribute="trailing" constant="16" id="xOt-Gk-3f6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="class1_ratio_txt" destination="nMO-eW-VQg" id="wbW-Uw-u5J"/>
+                        <outlet property="class2_ratio_txt" destination="g4g-ew-u01" id="vEK-Lr-ZR7"/>
+                        <outlet property="class3_ratio_txt" destination="ETt-dp-KvI" id="aqW-jy-Yna"/>
+                        <outlet property="class4_ratio_txt" destination="drK-8k-EdE" id="OyU-dW-dux"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
