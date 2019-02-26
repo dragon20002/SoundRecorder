@@ -1,6 +1,9 @@
 # SoundRecorder
 Swift record sound &amp; get dB
 
+Dev Env : Xcode 10.1, Swift 4.0 (iOS 9.3 cannot use recorder with Swift 4.2 current -Feb.27.19)<br>
+Target Ver : >= iOS 9.3
+
 ## Sample
 > power : result of swift media recorder sound level pressure. (-160dB ~ 0dB)<br>
 > dB    : corrected power (-70dB ~ 90dB)
